@@ -24,6 +24,12 @@
 	
 	app.controller('ReviewController', function(){
 		this.review = {}; 
+		
+		this.addReview = function(product){
+			
+			product.reviews.push(this.review);
+			this.review = {}; 
+		};
 	});
 	
 	var gems = [
@@ -38,11 +44,13 @@
 		{
 			stars: 5,
 			body: 'I love this product!',
-			author: 'me@google.com'	
+			author: 'me@google.com',
+			createdOn: 1397490980837
 		},{
 			stars: 1,
 			body: 'I think there are better options on the market.',
-			author: 'she@google.com'	
+			author: 'she@google.com',
+			createdOn: 1397490980837
 		},]
 	}, {
 		name: 'Pentagonal Gem',
@@ -54,11 +62,13 @@
 		{
 			stars: 5,
 			body: '<3 I love this product!',
-			author: 'me@google.com'	
+			author: 'me@google.com',
+			createdOn: 1397490980837
 		},{
 			stars: 1,
 			body: 'Maybe, there are better options on the market.',
-			author: 'she@google.com'	
+			author: 'she@google.com',
+			createdOn: 1397490980837	
 		},]		
 	}, {
 		name: 'Simple Gem',
@@ -70,7 +80,8 @@
 		{
 			stars: 5,
 			body: 'I want this product!',
-			author: 'me@google.com'	
+			author: 'me@google.com',
+			createdOn: 1397490980837
 		},]		
 	}, 
 	]
