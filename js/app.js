@@ -1,8 +1,26 @@
 (function(){
 	var app = angular.module('store',[]);
+
 	app.controller('StoreController', function(){
-		this.products = gems;
+		this.products = gems;	
 	});
+	
+	app.controller('GalleryController', function(){	
+		this.current = 0;
+		this.setCurrent = function(imageNumber){
+			this.current = imageNumber || 0;
+		};
+	});	
+	
+	app.controller('PanelController', function(){
+		this.tab = 1; 
+		this.selectTab = function(setTab){
+			this.tab = setTab;
+		};
+		this.isSelected = function(checkTab){
+			return this.tab === checkTab;
+		};		
+	});	
 	
 	var gems = [
 	{
