@@ -9,14 +9,15 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css" />	
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/products.js"></script>	
 </head>
 <body ng-controller="StoreController as store">
 	<div class="container">
 		<div class="row">
 			<div class="list-group col-md-4 col-md-offset-4">
 				<div class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'" ng-hide="product.soldOut">
-					<h1>{{product.name}}</h1>
-					<em class="pull-right">{{product.price | currency}}</em>
+					<product-title></product-title>
+			
 					<p>{{product.description}}</p>
 					<button ng-show="product.canPurchase">Add to Cart</button>
 
@@ -28,7 +29,7 @@
 							</li>
 						</ul>
 					</div>
-					<section ng-controller="PanelController as panel">
+					<product-panels ng-controller="PanelController as panel">
 						<ul class="nav nav-pills">
 							<li ng-class="{active : panel.isSelected(1)}"><a href ng-click="panel.selectTab(1)">Description</a></li>
 							<li ng-class="{active : panel.isSelected(2)}"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
@@ -38,10 +39,7 @@
 							<h4>Description</h4>
 							<p>{{product.description}}</p>
 						</div>
-						<div class="panel" ng-show="panel.isSelected(2)">
-							<h4>Specifications</h4>
-							<p>Not yet</p>
-						</div>
+						<div class="panel" product-specs ng-show="panel.isSelected(2)"></div>
 						<div class="panel" ng-show="panel.isSelected(3)">
 							<h4>Reviews</h4>
 							<blockquote ng-repeat="review in product.reviews">
@@ -74,7 +72,7 @@
 								</fieldset>
 							</form>
 						</div>						
-					</section>
+					</product-panels>
 
 				</div>
 			</div>

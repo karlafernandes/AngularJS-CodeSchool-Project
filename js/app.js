@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('store',[]);
+	var app = angular.module('store',['store-products']);
 
 	app.controller('StoreController', function(){
 		this.products = gems;	
@@ -10,16 +10,6 @@
 		this.setCurrent = function(imageNumber){
 			this.current = imageNumber || 0;
 		};
-	});	
-	
-	app.controller('PanelController', function(){
-		this.tab = 1; 
-		this.selectTab = function(setTab){
-			this.tab = setTab;
-		};
-		this.isSelected = function(checkTab){
-			return this.tab === checkTab;
-		};		
 	});	
 	
 	app.controller('ReviewController', function(){
@@ -36,6 +26,7 @@
 	{
 		name: "Dodecahedron",
 		price: 7.99,
+		shine: 8,
 		description: "Hummm 12 sides <3",
 		canPurchase: true,
 		soldOut: true,
@@ -55,6 +46,7 @@
 	}, {
 		name: 'Pentagonal Gem',
 		price: 5.2,
+		shine: 5,
 		description: '5 sides still good :)',
 		canPurchase: false,
 		images: ['images/5.png', 'images/5min.png', 'images/5min1.png'],
@@ -73,6 +65,7 @@
 	}, {
 		name: 'Simple Gem',
 		price: 3,
+		shine: 3,		
 		description: 'Unique detail hun :)',
 		canPurchase: true,
 		images: ['images/1.png', 'images/1min.png', 'images/1min1.png'],
